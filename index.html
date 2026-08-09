@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafío Laboratorio FRIDA</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <div id="fondo-laboratorio" class="contenedor sala-1">
+        
+        <!-- Pantalla de Registro e Inicio -->
+        <div id="pantalla-inicio" class="tarjeta">
+            <img src="fridatraje.png.jpeg" alt="Frida" class="img-frida">
+            <h1>Laboratorio FRIDA</h1>
+            <p>Bienvenido al laboratorio de Química y Matemáticas. Ingresa tu nombre para iniciar el desafío:</p>
+            <input type="text" id="nombre-jugador" placeholder="Escribe tu nombre aquí" autocomplete="off">
+            <button onclick="iniciarJuego()">Iniciar Desafío</button>
+        </div>
+
+        <!-- Pantalla del Juego -->
+        <div id="pantalla-juego" class="tarjeta oculto">
+            <div class="encabezado">
+                <span id="numero-sala">Sala 1</span>
+                <span>⏱️ <strong id="tiempo-restante">60s</strong></span>
+                <span>Peligro: <strong id="nivel-peligro">0%</strong></span>
+            </div>
+
+            <div class="barra-peligro">
+                <div id="indicador-peligro" class="indicador"></div>
+            </div>
+
+            <h2 id="texto-pregunta">Cargando pregunta...</h2>
+
+            <div id="contenedor-opciones" class="opciones">
+                <!-- Se generan con JS -->
+            </div>
+        </div>
+
+        <!-- Pantalla Final (Victoria / Derrota y Podio) -->
+        <div id="pantalla-final" class="tarjeta oculto">
+            <div id="contenedor-img-final"></div>
+            <h1 id="titulo-final">¡Resultado!</h1>
+            <p id="mensaje-final"></p>
+
+            <div class="seccion-podio">
+                <h3>🏆 Podio - Top 3 Mejores Jugadores</h3>
+                <ol id="lista-podio">
+                    <!-- Se genera con JS -->
+                </ol>
+            </div>
+
+            <button onclick="reiniciarJuego()">Volver a intentar</button>
+        </div>
+
+    </div>
+
+    <!-- Módulo de Overlay de Alarma -->
+    <div id="alarma-overlay" class="alarma"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
