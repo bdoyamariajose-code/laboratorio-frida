@@ -24,7 +24,7 @@ body, html {
     transition: background-image 0.5s ease-in-out;
 }
 
-/* Imágenes locales de las salas */
+
 .sala-1 { background-image: url('sala1.jpg'); }
 .sala-2 { background-image: url('sala2.jpg'); }
 .sala-3 { background-image: url('sala3.jpg'); }
@@ -33,7 +33,7 @@ body, html {
 .sala-6 { background-image: url('sala6.jpg'); }
 .sala-7 { background-image: url('sala7.jpg'); }
 
-/* Cuadro brillante neón */
+
 .tarjeta {
     background: rgba(25, 38, 51, 0.92);
     color: #ffffff;
@@ -152,7 +152,6 @@ button:hover {
     color: #000;
 }
 
-/* Podio */
 .seccion-podio {
     background: rgba(0, 0, 0, 0.5);
     border: 1px solid #00ffcc;
@@ -178,7 +177,6 @@ button:hover {
     margin-bottom: 5px;
 }
 
-/* Efecto de Alarma Rojo */
 .alarma {
     position: fixed;
     top: 0;
