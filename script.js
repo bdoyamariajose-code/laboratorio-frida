@@ -107,7 +107,7 @@ function responder(indiceSeleccionado) {
     indicePregunta++;
     let salaNueva = Math.floor(aciertos / 3) + 1;
 
-    // Reiniciar temporizador de 1 minuto solo al cambiar de sala
+    // Reiniciar temporizador al avanzar de sala
     if (salaNueva !== salaAnterior && salaNueva <= 7) {
         iniciarTemporizadorSala();
     }
@@ -134,38 +134,13 @@ function actualizarFondoYSala() {
     contenedor.className = "contenedor sala-" + numeroSala;
 }
 
-function guardarPuntaje(puntos) {
-    let podio = JSON.parse(localStorage.getItem("podioFrida")) || [];
-    podio.push({ nombre: nombreJugador, puntos: puntos });
-    podio.sort((a, b) => b.puntos - a.puntos);
-    podio = podio.slice(0, 3); // Mantener top 3
-    localStorage.setItem("podioFrida", JSON.stringify(podio));
-    mostrarPodio(podio);
-}
-
-function mostrarPodio(podio) {
-    let lista = document.getElementById("lista-podio");
-    lista.innerHTML = "";
-    if (podio.length === 0) {
-        lista.innerHTML = "<li>Sin registros aún</li>";
-        return;
-    }
-    podio.forEach(jugador => {
-        let li = document.createElement("li");
-        li.innerText = `${jugador.nombre} - ${jugador.puntos} aciertos`;
-        lista.appendChild(li);
-    });
-}
-
 function ganarJuego() {
     document.getElementById("pantalla-juego").classList.add("oculto");
     document.getElementById("pantalla-final").classList.remove("oculto");
     
-    document.getElementById("contenedor-img-final").innerHTML = '<img src="fridatraje.png" class="img-frida">';
+    document.getElementById("contenedor-img-final").innerHTML = '<img src="fridatraje.png.jpeg" class="img-frida">';
     document.getElementById("titulo-final").innerText = "¡Misión Cumplida!";
     document.getElementById("mensaje-final").innerText = `¡Felicidades, ${nombreJugador}! Lograste superar todas las salas con ${aciertos} aciertos.`;
-
-    guardarPuntaje(aciertos);
 }
 
 function perderJuego(motivo) {
@@ -175,8 +150,6 @@ function perderJuego(motivo) {
     document.getElementById("contenedor-img-final").innerHTML = '<img src="fridaenojada.png.jpeg" class="img-frida">';
     document.getElementById("titulo-final").innerText = "¡Te has equivocado!";
     document.getElementById("mensaje-final").innerText = `${nombreJugador}, ${motivo} Lograste ${aciertos} aciertos.`;
-
-    guardarPuntaje(aciertos);
 }
 
 function reiniciarJuego() {
