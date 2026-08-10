@@ -107,7 +107,6 @@ function responder(indiceSeleccionado) {
     indicePregunta++;
     let salaNueva = Math.floor(aciertos / 3) + 1;
 
-    // Reiniciar temporizador al avanzar de sala
     if (salaNueva !== salaAnterior && salaNueva <= 7) {
         iniciarTemporizadorSala();
     }
